@@ -27,3 +27,5 @@ class Amplify(Effect):
         )
         self.end_val.grid(row=0, column=1, padx=5, pady=5)
         self.end_val_var.set(0.1)
+
+        super().create_widgets()

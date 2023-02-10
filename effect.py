@@ -11,6 +11,12 @@ class Effect(tk.Frame):
     def create_widgets(self):
         self.info_button = tk.Button(
             self,
-            bitmap="icon"
+            bitmap="info"
         )
-        self.info_button.grid(row=0, column=6, sticky=tk.E, padx=5, pady=5)
+        self.info_button.grid(
+            row=0, 
+            column=6, 
+            sticky=tk.E, 
+            padx=5, 
+            pady=5
+        )

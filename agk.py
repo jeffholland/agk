@@ -1,11 +1,12 @@
 import tkinter as tk
 
+from colors import colors
 from effects import Effects
 from parameters import Parameters
 
 class AudacityGlitchKitchen(tk.Frame):
     def __init__(self, master=None):
-        tk.Frame.__init__(self, master)
+        tk.Frame.__init__(self, master, bg=colors["bg1"])
 
         self.grid(row=0, column=0)
 
