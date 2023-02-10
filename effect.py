@@ -1,25 +1,16 @@
 import tkinter as tk
 
+# Base class for the Effect module
+
 class Effect(tk.Frame):
-    def __init__(self, master, name):
-        tk.Frame.__init__(
-            self, 
-            master,
-            bg="yellow"
-        )
-
-        self.name = name
-
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        self.master = master
         self.create_widgets()
 
     def create_widgets(self):
-        self.name_label = tk.Label(
+        self.info_button = tk.Button(
             self,
-            text=self.name
+            bitmap="icon"
         )
-        self.name_label.grid(
-            row=0, 
-            column=0,
-            padx=5,
-            pady=5
-        )
+        self.info_button.grid(row=0, column=6, sticky=tk.E, padx=5, pady=5)

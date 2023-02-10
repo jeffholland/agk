@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from effect import Effect
+from effect_container import EffectContainer
 from add_effect import AddEffect
 
 class Effects(tk.Frame):
@@ -29,7 +29,7 @@ class Effects(tk.Frame):
         self.add_effects = AddEffect(self)
 
     def add_effect(self, name):
-        self.effects.append(Effect(
+        self.effects.append(EffectContainer(
             self,
             name
         ))
