@@ -8,6 +8,7 @@ class Amplify(Effect):
         Effect.__init__(self, master, "Amplify")
         self.master = master
         self.create_widgets()
+        super().refresh_colors()
 
     def create_widgets(self):
         

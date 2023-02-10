@@ -6,7 +6,7 @@ from colors import colors
 
 class Effect(tk.Frame):
     def __init__(self, master, name):
-        tk.Frame.__init__(self, master, bg=colors["bg1"])
+        tk.Frame.__init__(self, master, bg=colors["bg2"])
 
         self.master = master
         self.name = name
@@ -23,19 +23,21 @@ class Effect(tk.Frame):
         )
         self.name_label.grid(
             row=0, 
-            column=0
+            column=0,
+            columnspan=5
         )
+        self.widgets.append(self.name_label)
 
-        self.info_button = tk.Button(
-            self,
-            bitmap="info"
-        )
-        self.info_button.grid(
-            row=1, 
-            column=6, 
-            sticky=tk.E
-        )
-        self.widgets.append(self.info_button)
+        # self.info_button = tk.Button(
+        #     self,
+        #     bitmap="info"
+        # )
+        # self.info_button.grid(
+        #     row=1, 
+        #     column=6, 
+        #     sticky=tk.E
+        # )
+        # self.widgets.append(self.info_button)
 
         for widget in self.widgets:
             widget.grid_configure(padx=5, pady=5)
@@ -43,6 +45,6 @@ class Effect(tk.Frame):
     def refresh_colors(self):
         for widget in self.widgets:
             widget.configure(
-                highlightbackground=colors["bg1"],
-                background=colors["bg1"]
+                bg=colors["bg2"],
+                fg=colors["hl2"]
             )

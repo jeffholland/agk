@@ -6,7 +6,7 @@ from colors import colors
 
 class Effects(tk.Frame):
     def __init__(self, master):
-        tk.Frame.__init__(self, master, bg=colors["bg2"])
+        tk.Frame.__init__(self, master, bg=colors["bg1"])
 
         # Store list of effect objects
         self.effects = []
