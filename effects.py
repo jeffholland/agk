@@ -6,7 +6,7 @@ from colors import colors
 
 class Effects(tk.Frame):
     def __init__(self, master):
-        tk.Frame.__init__(self, master, bg=colors["bg1"])
+        tk.Frame.__init__(self, master, bg=colors["bg2"])
 
         # Store list of effect objects
         self.effects = []
@@ -24,7 +24,7 @@ class Effects(tk.Frame):
             width=1,
             command=self.show_add_effects
         )
-        self.add_button.grid(row=0, column=0)
+        self.add_button.grid(row=0, column=0, columnspan=5)
         self.buttons.append(self.add_button)
 
     def show_add_effects(self):

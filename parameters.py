@@ -6,7 +6,7 @@ class Parameters(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master, bg=colors["bg1"])
         
-        self.entry_width = 25
+        self.entry_width = 28
 
         self.widgets = []
         self.entry_widgets = []

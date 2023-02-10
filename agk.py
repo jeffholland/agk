@@ -17,10 +17,10 @@ class AudacityGlitchKitchen(tk.Frame):
 
     def create_widgets(self):
         self.parameters = Parameters(self)
-        self.parameters.grid(row=0, column=0)
+        self.parameters.grid(row=0, column=0, padx=5, pady=5)
 
         self.effects = Effects(self)
-        self.effects.grid(row=1, column=0)
+        self.effects.grid(row=1, column=0, padx=5, pady=5)
 
 app = AudacityGlitchKitchen()
 app.master.title("AudacityGlitchKitchen")

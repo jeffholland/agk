@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from colors import colors
 from effect_amplify import Amplify
 from effect_echo import Echo
 
@@ -9,7 +10,8 @@ class EffectContainer(tk.Frame):
     def __init__(self, master, name):
         tk.Frame.__init__(
             self, 
-            master
+            master,
+            bg=colors["bg1"]
         )
 
         self.name = name
