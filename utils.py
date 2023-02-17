@@ -1,10 +1,20 @@
 import os
 import json
+from sys import exit
+
+from tkinter import messagebox
 
 TONAME = '/tmp/audacity_script_pipe.to.' + str(os.getuid())
 FROMNAME = '/tmp/audacity_script_pipe.from.' + str(os.getuid())
-TOFILE = open(TONAME, 'w')
-FROMFILE = open(FROMNAME, 'rt')
+
+try:
+  TOFILE = open(TONAME, 'w')
+  FROMFILE = open(FROMNAME, 'rt')
+except FileNotFoundError:
+  messagebox.showerror("Pipe not found", 
+    """The audacity pipe file was not found. 
+    Please make sure Audacity is open before launching the application.""")
+  exit()
 
 def send_command(command):
   TOFILE.write(command + "\n")

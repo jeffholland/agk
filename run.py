@@ -15,7 +15,8 @@ class Run(tk.Frame):
     def create_widgets(self):
         self.run_button = tk.Button(
             self,
-            text="Run"
+            text="Run",
+            command=self.run
         )
         self.run_button.grid(row=0, column=0)
         self.widgets.append(self.run_button)
@@ -33,3 +34,7 @@ class Run(tk.Frame):
                 highlightbackground=colors["bg1"],
                 foreground=colors["bg1"]
             )
+
+
+    def run(self):
+        self.master.run()
