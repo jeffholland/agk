@@ -42,10 +42,9 @@ class AudacityGlitchKitchen(tk.Frame):
 
     def run(self):
         params = self.parameters.get_params()
-        print(params)
-
         processes = self.effects.get_processes()
-        print(processes)
+
+        self.processor.process(params, processes)
 
 
 

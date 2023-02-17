@@ -103,7 +103,7 @@ class Parameters(tk.Frame):
             width=self.entry_width
         )
         self.num_iterations_entry.grid(row=2, column=1)
-        self.num_iterations_var.set(0)
+        self.num_iterations_var.set(1)
         self.entry_widgets.append(self.num_iterations_entry)
 
         # import checkbox
@@ -115,6 +115,7 @@ class Parameters(tk.Frame):
             text="Import"
         )
         self.import_check.grid(row=3, column=0)
+        self.import_check_var.set(1)
         self.widgets.append(self.import_check)
 
         # gaps checkbox

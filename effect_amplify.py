@@ -13,7 +13,7 @@ class Amplify(Effect):
     def create_widgets(self):
         
         self.start_val_var = tk.StringVar()
-        self.start_val = tk.Spinbox(
+        self.start_val = tk.Entry(
             self,
             textvariable=self.start_val_var,
             width=2
@@ -23,7 +23,7 @@ class Amplify(Effect):
         self.widgets.append(self.start_val)
         
         self.end_val_var = tk.StringVar()
-        self.end_val = tk.Spinbox(
+        self.end_val = tk.Entry(
             self,
             textvariable=self.end_val_var,
             width=2
