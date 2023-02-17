@@ -41,10 +41,11 @@ class AudacityGlitchKitchen(tk.Frame):
     # Running the glitch process
 
     def run(self):
-        print("running the glitch process")
-
         params = self.parameters.get_params()
         print(params)
+
+        processes = self.effects.get_processes()
+        print(processes)
 
 
 

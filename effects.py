@@ -14,7 +14,7 @@ class Effects(tk.Frame):
         # Store list of widgets
         self.buttons = []
 
-        # Store canvas object ids
+        # Store canvas object ids for scrolling
         self.canvas_object_ids = []
 
         self.width = 300
@@ -22,6 +22,21 @@ class Effects(tk.Frame):
 
         self.create_widgets()
         self.refresh_colors()
+
+
+    def get_processes(self):
+        processes = []
+
+        for effect in self.effects:
+            processes.append(
+                {
+                    "name": effect.name,
+                    "effect_params": effect.get_effect_params()
+                }
+            )
+
+        return processes
+
 
     def create_widgets(self):
 

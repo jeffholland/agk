@@ -31,3 +31,6 @@ class EffectContainer(tk.Frame):
 
         self.effect.grid_propagate(0)
         self.effect.grid(row=0, column=0)
+
+    def get_effect_params(self):
+        return self.effect.get_effect_params()

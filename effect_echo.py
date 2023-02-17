@@ -10,3 +10,7 @@ class Echo(Effect):
 
     def create_widgets(self):
         super().create_widgets()
+
+
+    def get_effect_params(self):
+        return self.params

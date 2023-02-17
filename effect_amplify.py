@@ -33,3 +33,10 @@ class Amplify(Effect):
         self.widgets.append(self.end_val)
 
         super().create_widgets()
+
+
+    def get_effect_params(self):
+        self.params["start_val"] = self.start_val_var.get()
+        self.params["end_val"] = self.end_val_var.get()
+
+        return self.params

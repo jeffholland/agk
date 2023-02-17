@@ -7,11 +7,13 @@
         "fill_gaps": false,
         "gaps": []
     },
-    "effects": [
+    "processes": [
         {
             "name": "Amplify",
-            "start_val": 0.8,
-            "end_val": 0.1
+            "effect_params": {
+                "start_val": 0.8,
+                "end_val": 0.1
+            }
         }
     ]
 }
