@@ -3,6 +3,7 @@ import tkinter as tk
 from colors import colors
 from effects import Effects
 from parameters import Parameters
+from run import Run
 
 class AudacityGlitchKitchen(tk.Frame):
     def __init__(self, master=None):
@@ -11,7 +12,7 @@ class AudacityGlitchKitchen(tk.Frame):
         self.grid(row=0, column=0)
 
         self.width = 400
-        self.height = 570
+        self.height = 600
         
         self.create_widgets()
 
@@ -20,7 +21,10 @@ class AudacityGlitchKitchen(tk.Frame):
         self.parameters.grid(row=0, column=0, padx=5, pady=5)
 
         self.effects = Effects(self)
-        self.effects.grid(row=1, column=0, padx=10, pady=10)
+        self.effects.grid(row=1, column=0, padx=5, pady=5)
+
+        self.run = Run(self)
+        self.run.grid(row=2, column=0, padx=5, pady=5)
 
 app = AudacityGlitchKitchen()
 app.master.title("AudacityGlitchKitchen")

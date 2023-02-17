@@ -80,6 +80,17 @@ class Parameters(tk.Frame):
         self.num_iterations_var.set(0)
         self.entry_widgets.append(self.num_iterations_entry)
 
+        # import checkbox
+
+        self.import_check_var = tk.IntVar()
+        self.import_check = tk.Checkbutton(
+            self,
+            variable=self.import_check_var,
+            text="Import"
+        )
+        self.import_check.grid(row=3, column=0)
+        self.widgets.append(self.import_check)
+
         # gaps checkbox
 
         self.gaps_check_var = tk.IntVar()
@@ -88,7 +99,7 @@ class Parameters(tk.Frame):
             variable=self.gaps_check_var,
             text="Fill gaps"
         )
-        self.gaps_check.grid(row=3, column=0)
+        self.gaps_check.grid(row=3, column=1)
         self.widgets.append(self.gaps_check)
 
         # gaps entry label
