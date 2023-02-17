@@ -10,10 +10,13 @@
     "processes": [
         {
             "name": "Amplify",
-            "effect_params": {
-                "start_val": 0.8,
-                "end_val": 0.1
-            }
+            "params": [
+                {
+                    "name": "Ratio",
+                    "start_val": 0.8,
+                    "end_val": 0.1
+                }
+            ]
         }
     ]
 }

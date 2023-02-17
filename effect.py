@@ -13,7 +13,7 @@ class Effect(tk.Frame):
 
         self.widgets = []
 
-        self.params = {}
+        self.params = []
 
         self.create_widgets()
         self.refresh_colors()

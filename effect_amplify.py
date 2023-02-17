@@ -36,7 +36,11 @@ class Amplify(Effect):
 
 
     def get_effect_params(self):
-        self.params["start_val"] = self.start_val_var.get()
-        self.params["end_val"] = self.end_val_var.get()
+        param = {
+            "name": "Ratio",
+            "start_val": self.start_val_var.get(),
+            "end_val": self.end_val_var.get()
+        }
+        self.params.append(param)
 
         return self.params

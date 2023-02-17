@@ -31,7 +31,7 @@ class Effects(tk.Frame):
             processes.append(
                 {
                     "name": effect.name,
-                    "effect_params": effect.get_effect_params()
+                    "params": effect.get_effect_params()
                 }
             )
 
