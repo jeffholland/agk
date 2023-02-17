@@ -6,7 +6,7 @@ from colors import colors
 
 class Effect(tk.Frame):
     def __init__(self, master, name):
-        tk.Frame.__init__(self, master, bg=colors["bg2"])
+        tk.Frame.__init__(self, master, bg=colors["hl1"])
 
         self.master = master
         self.name = name
@@ -17,6 +17,19 @@ class Effect(tk.Frame):
         self.refresh_colors()
 
     def create_widgets(self):
+
+        # grid configuration
+
+        self.width = self.master.master.master.master.width
+        self.height = 80
+        self.configure(width=self.width, height=self.height)
+
+        numcolumns = 2
+        for i in range(numcolumns):
+            self.columnconfigure(i, minsize=self.width / numcolumns)
+
+        # labels
+
         self.name_label = tk.Label(
             self,
             text=self.name
@@ -24,7 +37,7 @@ class Effect(tk.Frame):
         self.name_label.grid(
             row=0, 
             column=0,
-            columnspan=5
+            columnspan=2
         )
         self.widgets.append(self.name_label)
 
@@ -45,6 +58,7 @@ class Effect(tk.Frame):
     def refresh_colors(self):
         for widget in self.widgets:
             widget.configure(
-                bg=colors["bg2"],
-                fg=colors["hl2"]
+                bg=colors["hl1"],
+                fg=colors["bg1"],
+                highlightbackground=colors["hl1"]
             )

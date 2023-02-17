@@ -11,7 +11,7 @@ class AudacityGlitchKitchen(tk.Frame):
         self.grid(row=0, column=0)
 
         self.width = 400
-        self.height = 800
+        self.height = 570
         
         self.create_widgets()
 
@@ -20,7 +20,7 @@ class AudacityGlitchKitchen(tk.Frame):
         self.parameters.grid(row=0, column=0, padx=5, pady=5)
 
         self.effects = Effects(self)
-        self.effects.grid(row=1, column=0, padx=5, pady=5)
+        self.effects.grid(row=1, column=0, padx=10, pady=10)
 
 app = AudacityGlitchKitchen()
 app.master.title("AudacityGlitchKitchen")

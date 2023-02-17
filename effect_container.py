@@ -10,8 +10,7 @@ class EffectContainer(tk.Frame):
     def __init__(self, master, name):
         tk.Frame.__init__(
             self, 
-            master,
-            bg=colors["bg1"]
+            master
         )
 
         self.name = name
@@ -30,4 +29,5 @@ class EffectContainer(tk.Frame):
         if self.effect == None:
             raise NameError("Effect created with invalid name")
 
-        self.effect.grid(row=0, column=0, pady=10)
+        self.effect.grid_propagate(0)
+        self.effect.grid(row=0, column=0)
