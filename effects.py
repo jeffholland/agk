@@ -97,7 +97,6 @@ class Effects(tk.Frame):
             padx=5,
             pady=5
         )
-        print(row_number)
 
 
 

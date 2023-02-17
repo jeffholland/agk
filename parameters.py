@@ -15,6 +15,32 @@ class Parameters(tk.Frame):
 
         self.refresh_colors()
 
+
+
+    # Returns Parameters
+
+    def get_params(self):
+
+        # Return a dict containing all parameter values.
+
+        import_bool = True
+        if self.import_check_var.get() == 0:
+            import_bool = False
+
+        fill_gaps_bool = True
+        if self.gaps_check_var.get() == 0:
+            fill_gaps_bool = False
+
+        return {
+            "folder_name": self.folder_name_var.get(),
+            "counter_start": self.counter_start_var.get(),
+            "num_iterations": self.num_iterations_var.get(),
+            "import": import_bool,
+            "fill_gaps": fill_gaps_bool,
+            "gaps": self.gaps_entry_var.get()
+        }
+
+
     def create_widgets(self):
 
         # folder name label
