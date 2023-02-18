@@ -11,7 +11,12 @@ class Effect(tk.Frame):
         self.master = master
         self.name = name
 
+        # dimensions - height can be changed
+        self.width = self.master.master.master.master.width
+        self.height = 80
+
         self.widgets = []
+        self.entries = []
 
         self.params = []
 
@@ -19,11 +24,6 @@ class Effect(tk.Frame):
         self.refresh_colors()
 
     def create_widgets(self):
-
-        # grid configuration
-
-        self.width = self.master.master.master.master.width
-        self.height = 80
         self.configure(width=self.width, height=self.height)
 
         numcolumns = 2
@@ -63,4 +63,9 @@ class Effect(tk.Frame):
                 bg=colors["hl1"],
                 fg=colors["bg1"],
                 highlightbackground=colors["hl1"]
+            )
+        for entry in self.entries:
+            entry.configure(
+                bg=colors["bg2"],
+                fg=colors["hl2"]
             )

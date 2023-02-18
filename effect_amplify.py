@@ -7,6 +7,7 @@ class Amplify(Effect):
 
         Effect.__init__(self, master, "Amplify")
         self.master = master
+
         self.create_widgets()
         super().refresh_colors()
 
@@ -20,7 +21,7 @@ class Amplify(Effect):
         )
         self.start_val.grid(row=1, column=0, padx=5, pady=5)
         self.start_val_var.set(0.1)
-        self.widgets.append(self.start_val)
+        self.entries.append(self.start_val)
         
         self.end_val_var = tk.StringVar()
         self.end_val = tk.Entry(
@@ -30,7 +31,7 @@ class Amplify(Effect):
         )
         self.end_val.grid(row=1, column=1, padx=5, pady=5)
         self.end_val_var.set(0.1)
-        self.widgets.append(self.end_val)
+        self.entries.append(self.end_val)
 
         super().create_widgets()
 
