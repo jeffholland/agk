@@ -55,11 +55,9 @@ class Processor:
                 command = effect["name"] + ": "
 
                 for param in effect["params"]:
-                    value = self.get_value(
-                        param["start_val"], 
-                        param["end_val"],
-                        i
-                    )
+                    start_val = float(param["start_val"])
+                    end_val = float(param["end_val"])
+                    value = self.get_value(start_val, end_val, i)
                     command += param["name"] + "=" + str(value) + " "
                 
                 print(command)
