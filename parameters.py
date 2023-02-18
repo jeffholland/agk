@@ -31,13 +31,21 @@ class Parameters(tk.Frame):
         if self.gaps_check_var.get() == 0:
             fill_gaps_bool = False
 
+        gaps_str = self.gaps_entry_var.get().split(',')
+        gaps = []
+        for gap in gaps_str:
+            try:
+                gaps.append(int(gap))
+            except ValueError:
+                pass
+
         return {
             "folder_name": self.folder_name_var.get(),
             "counter_start": self.counter_start_var.get(),
             "num_iterations": self.num_iterations_var.get(),
             "import": import_bool,
             "fill_gaps": fill_gaps_bool,
-            "gaps": self.gaps_entry_var.get()
+            "gaps": gaps
         }
 
 
