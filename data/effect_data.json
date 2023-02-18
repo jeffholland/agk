@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Amplify",
+        "params": [
+            {
+                "name": "Ratio",
+                "min": 0.01,
+                "max": 0.99
+            }
+        ]
+    },
+    {
+        "name": "Echo",
+        "params": [
+            {
+                "name": "Delay",
+                "min": 0.01,
+                "max": 30.0
+            },
+            {
+                "name": "Decay",
+                "min": 0.01,
+                "max": 0.99
+            }
+        ]
+    }
+]

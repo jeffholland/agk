@@ -14,7 +14,7 @@ class Effect(tk.Frame):
         #   "max": 0.99
         # }
         #
-        # this is all an Effect subclass needs to specify
+        # this info is imported from data/effect_data.json in effects.py
 
         tk.Frame.__init__(self, master, bg=colors["hl1"])
 
@@ -23,7 +23,7 @@ class Effect(tk.Frame):
         self.params = params
 
         # dimensions - height based on num params
-        self.width = self.master.master.master.master.width
+        self.width = self.master.master.master.width
         self.height = 50 + (30 * len(self.params))
 
         # empty arrays to store the GUI elements

@@ -1,0 +1,22 @@
+{
+    "params": {
+        "folder_name": "gen1",
+        "counter_start": 0,
+        "num_iterations": 50,
+        "import": true,
+        "fill_gaps": false,
+        "gaps": []
+    },
+    "processes": [
+        {
+            "name": "Amplify",
+            "params": [
+                {
+                    "name": "Ratio",
+                    "start_val": 0.8,
+                    "end_val": 0.1
+                }
+            ]
+        }
+    ]
+}

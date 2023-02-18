@@ -1,6 +1,8 @@
 import tkinter as tk
 
-from effect_container import EffectContainer
+import json
+
+from effect import Effect
 from add_effect import AddEffect
 from colors import colors
 
@@ -11,7 +13,7 @@ class Effects(tk.Frame):
         # Store list of effect objects
         self.effects = []
 
-        # Store list of widgets
+        # Store list of buttons
         self.buttons = []
 
         # Store canvas object ids for scrolling
@@ -22,20 +24,6 @@ class Effects(tk.Frame):
 
         self.create_widgets()
         self.refresh_colors()
-
-
-    def get_processes(self):
-        processes = []
-
-        for effect in self.effects:
-            processes.append(
-                {
-                    "name": effect.name,
-                    "params": effect.get_effect_params()
-                }
-            )
-
-        return processes
 
 
     def create_widgets(self):
@@ -60,7 +48,6 @@ class Effects(tk.Frame):
 
         self.canvas.bind_all("<MouseWheel>", self.on_mouse_wheel)
 
-
         # Buttons
 
         self.add_button = tk.Button(
@@ -78,6 +65,40 @@ class Effects(tk.Frame):
         self.buttons.append(self.add_button)
 
 
+    def show_add_effects(self):
+        self.add_effects = AddEffect(self)
+
+    def add_effect(self, name):
+        self.get_params(name)
+        self.effects.append(Effect(
+            self.container,
+            name,
+            self.get_params(name)
+        ))
+        row_number = len(self.effects)
+        self.effects[-1].grid(
+            row=row_number, 
+            column=0, 
+            columnspan=5,
+            padx=5,
+            pady=5
+        )
+
+
+    def get_processes(self):
+        processes = []
+
+        for effect in self.effects:
+            processes.append(
+                {
+                    "name": effect.name,
+                    "params": effect.get_effect_params()
+                }
+            )
+
+        return processes
+
+
     def scroll_config(self, event=None):
         self.canvas.configure(
             scrollregion=self.canvas.bbox("all"),
@@ -93,31 +114,20 @@ class Effects(tk.Frame):
         self.canvas.yview_scroll(-1*(event.delta), "units")
 
 
-
-    def show_add_effects(self):
-        self.add_effects = AddEffect(self)
-
-
-
-    def add_effect(self, name):
-        self.effects.append(EffectContainer(
-            self.container,
-            name
-        ))
-        row_number = len(self.effects)
-        self.effects[-1].grid(
-            row=row_number, 
-            column=0, 
-            columnspan=5,
-            padx=5,
-            pady=5
-        )
-
-
-
     def refresh_colors(self):
         for button in self.buttons:
             button.configure(
                 highlightbackground=colors["bg1"],
                 foreground=colors["bg1"]
             )
+
+
+    def get_params(self, name):
+        data = []
+
+        with open("data/effect_data.json", "r") as f:
+            data = json.load(f)
+
+        for effect in data:
+            if effect["name"] == name:
+                return effect["params"]
