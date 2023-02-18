@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+import json
+
 class AddEffect(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -12,7 +14,7 @@ class AddEffect(tk.Frame):
 
         # Select effect from a dropdown
 
-        self.effect_names = ["Amplify", "Echo"]
+        self.effect_names = self.get_effect_names()
 
         self.effect_selector_var = tk.StringVar()
         self.effect_selector = ttk.Combobox(
@@ -40,6 +42,17 @@ class AddEffect(tk.Frame):
         )
         self.cancel_button.grid(row=1, column=1)
 
+    def get_effect_names(self):
+        data = []
+        names = []
+
+        with open("data/effect_data.json", "r") as f:
+            data = json.load(f)
+
+        for effect in data:
+            names.append(effect["name"])
+        
+        return names
 
     
     def ok_pressed(self):

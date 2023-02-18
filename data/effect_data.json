@@ -10,6 +10,26 @@
         ]
     },
     {
+        "name": "BassAndTreble",
+        "params": [
+            {
+                "name": "Bass",
+                "min": -30.0,
+                "max": 30.0
+            },
+            {
+                "name": "Treble",
+                "min": -30.0,
+                "max": 30.0
+            },
+            {
+                "name": "Gain",
+                "min": -30.0,
+                "max": 30.0
+            }
+        ]
+    },
+    {
         "name": "Echo",
         "params": [
             {

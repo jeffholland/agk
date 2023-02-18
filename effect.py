@@ -23,7 +23,7 @@ class Effect(tk.Frame):
         self.params = params
 
         # dimensions - height based on num params
-        self.width = self.master.master.master.width
+        self.width = self.master.master.master.width - 20
         self.height = 50 + (30 * len(self.params))
 
         # empty arrays to store the GUI elements
