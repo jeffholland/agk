@@ -70,6 +70,26 @@
         ]
     },
     {
+        "name": "Distortion",
+        "params": [
+            {
+                "name": "Threshold dB",
+                "min": -100.0,
+                "max": 0.0
+            },
+            {
+                "name": "Parameter 1",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "Parameter 2",
+                "min": 0.0,
+                "max": 100.0
+            }
+        ]
+    },
+    {
         "name": "Echo",
         "params": [
             {
@@ -81,6 +101,84 @@
                 "name": "Decay",
                 "min": 0.01,
                 "max": 0.99
+            }
+        ]
+    },
+    {
+        "name": "FadeIn",
+        "params": []
+    },
+    {
+        "name": "FadeOut",
+        "params": []
+    },
+    {
+        "name": "FilterCurve",
+        "params": [
+            {
+                "name": "f0",
+                "min": 0.0,
+                "max": 20000.0
+            },
+            {
+                "name": "v0",
+                "min": -30.0,
+                "max": 30.0
+            }
+        ]
+    },
+    {
+        "name": "GraphicEq",
+        "params": [
+            {
+                "name": "f0",
+                "min": 0.0,
+                "max": 20000.0
+            },
+            {
+                "name": "v0",
+                "min": -30.0,
+                "max": 30.0
+            }
+        ]
+    },
+    {
+        "name": "Phaser",
+        "params": [
+            {
+                "name": "Stages",
+                "min": 2,
+                "max": 24
+            },
+            {
+                "name": "DryWet",
+                "min": 0,
+                "max": 255
+            },
+            {
+                "name": "Freq",
+                "min": 0.001,
+                "max": 4.0
+            },
+            {
+                "name": "Phase",
+                "min": 0.0,
+                "max": 360.0
+            },
+            {
+                "name": "Depth",
+                "min": 0,
+                "max": 255
+            },
+            {
+                "name": "Feedback",
+                "min": -100,
+                "max": 100
+            },
+            {
+                "name": "Gain",
+                "min": -30.0,
+                "max": 30.0
             }
         ]
     }
