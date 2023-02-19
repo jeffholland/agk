@@ -137,3 +137,9 @@ class Effects(tk.Frame):
         for effect in self.effects:
             effect.grid_forget()
         self.effects.clear()
+
+    def set_effects(self, effects):
+        self.reset()
+
+        for effect in self.effects:
+            self.add_effect(effect["name"])

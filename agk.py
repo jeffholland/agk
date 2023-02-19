@@ -1,5 +1,7 @@
 import tkinter as tk
 
+import json
+
 from colors import colors
 from effects import Effects
 from parameters import Parameters
@@ -45,6 +47,16 @@ class AudacityGlitchKitchen(tk.Frame):
         processes = self.effects.get_processes()
 
         self.processor.process(params, processes)
+
+    # Reset effects and params
+
+    def reset(self):
+        data = {}
+        with open("data/default_settings.json", "r") as f:
+            data = json.load(f)
+
+        self.parameters.set_parameters(data["params"])
+        self.effects.set_effects(data["effects"])
 
 
 

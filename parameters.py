@@ -176,3 +176,12 @@ class Parameters(tk.Frame):
                 background=colors["bg2"],
                 foreground=colors["hl2"]
             )
+
+
+    def set_parameters(self, params):
+        self.folder_name_var.set(params["folder_name"])
+        self.counter_start_var.set(params["counter_start"])
+        self.num_iterations_var.set(params["num_iterations"])
+        self.import_check_var.set(int(params["import"]))
+        self.gaps_check_var.set(0)
+        self.gaps_entry.delete(0, tk.END)

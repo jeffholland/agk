@@ -40,4 +40,4 @@ class Run(tk.Frame):
         self.master.run()
 
     def reset(self):
-        self.master.effects.reset()
+        self.master.reset()
