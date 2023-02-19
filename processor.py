@@ -86,4 +86,4 @@ class Processor:
 
         inc = (end_val - start_val) / self.num_iterations
 
-        return start_val + (inc * idx)
+        return start_val + (inc * (idx - self.counter_start))
