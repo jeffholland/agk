@@ -131,3 +131,9 @@ class Effects(tk.Frame):
         for effect in data:
             if effect["name"] == name:
                 return effect["params"]
+
+
+    def reset(self):
+        for effect in self.effects:
+            effect.grid_forget()
+        self.effects.clear()

@@ -23,7 +23,8 @@ class Run(tk.Frame):
 
         self.reset_button = tk.Button(
             self,
-            text="Reset"
+            text="Reset",
+            command=self.reset
         )
         self.reset_button.grid(row=0, column=1)
         self.widgets.append(self.reset_button)
@@ -35,6 +36,8 @@ class Run(tk.Frame):
                 foreground=colors["bg1"]
             )
 
-
     def run(self):
         self.master.run()
+
+    def reset(self):
+        self.master.effects.reset()
