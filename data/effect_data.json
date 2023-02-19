@@ -4,6 +4,7 @@
         "params": [
             {
                 "name": "Ratio",
+                "type": "float",
                 "min": 0.01,
                 "max": 0.99
             }
@@ -14,16 +15,19 @@
         "params": [
             {
                 "name": "Bass",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             },
             {
                 "name": "Treble",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             },
             {
                 "name": "Gain",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             }
@@ -34,6 +38,7 @@
         "params": [
             {
                 "name": "Percentage",
+                "type": "float",
                 "min": -99.0,
                 "max": 400.0
             }
@@ -44,26 +49,31 @@
         "params": [
             {
                 "name": "Threshold",
+                "type": "float",
                 "min": -60.0,
                 "max": -1.0
             },
             {
                 "name": "NoiseFloor",
+                "type": "float",
                 "min": -80.0,
                 "max": -20.0
             },
             {
                 "name": "Ratio",
+                "type": "float",
                 "min": 1.1,
                 "max": 10.0
             },
             {
                 "name": "AttackTime",
+                "type": "float",
                 "min": 0.1,
                 "max": 5.0
             },
             {
                 "name": "ReleaseTime",
+                "type": "float",
                 "min": 1.0,
                 "max": 30.0
             }
@@ -74,16 +84,19 @@
         "params": [
             {
                 "name": "Threshold dB",
+                "type": "float",
                 "min": -100.0,
                 "max": 0.0
             },
             {
                 "name": "Parameter 1",
+                "type": "float",
                 "min": 0.0,
                 "max": 100.0
             },
             {
                 "name": "Parameter 2",
+                "type": "float",
                 "min": 0.0,
                 "max": 100.0
             }
@@ -94,11 +107,13 @@
         "params": [
             {
                 "name": "Delay",
+                "type": "float",
                 "min": 0.01,
                 "max": 30.0
             },
             {
                 "name": "Decay",
+                "type": "float",
                 "min": 0.01,
                 "max": 0.99
             }
@@ -117,11 +132,13 @@
         "params": [
             {
                 "name": "f0",
+                "type": "float",
                 "min": 0.0,
                 "max": 20000.0
             },
             {
                 "name": "v0",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             }
@@ -132,11 +149,13 @@
         "params": [
             {
                 "name": "f0",
+                "type": "float",
                 "min": 0.0,
                 "max": 20000.0
             },
             {
                 "name": "v0",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             }
@@ -147,36 +166,159 @@
         "params": [
             {
                 "name": "Stages",
+                "type": "int",
                 "min": 2,
                 "max": 24
             },
             {
                 "name": "DryWet",
+                "type": "int",
                 "min": 0,
                 "max": 255
             },
             {
                 "name": "Freq",
+                "type": "float",
                 "min": 0.001,
                 "max": 4.0
             },
             {
                 "name": "Phase",
+                "type": "float",
                 "min": 0.0,
                 "max": 360.0
             },
             {
                 "name": "Depth",
+                "type": "int",
                 "min": 0,
                 "max": 255
             },
             {
                 "name": "Feedback",
+                "type": "int",
                 "min": -100,
                 "max": 100
             },
             {
                 "name": "Gain",
+                "type": "float",
+                "min": -30.0,
+                "max": 30.0
+            }
+        ]
+    },
+    {
+        "name": "Reverb",
+        "params": [
+            {
+                "name": "RoomSize",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "Delay",
+                "type": "float",
+                "min": 0.0,
+                "max": 200.0
+            },
+            {
+                "name": "Reverberance",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "HfDamping",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "ToneLow",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "ToneHigh",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            },
+            {
+                "name": "WetGain",
+                "type": "float",
+                "min": -20.0,
+                "max": 10.0
+            },
+            {
+                "name": "DryGain",
+                "type": "float",
+                "min": -20.0,
+                "max": 10.0
+            },
+            {
+                "name": "StereoWidth",
+                "type": "float",
+                "min": 0.0,
+                "max": 100.0
+            }
+        ]
+    },
+    {
+        "name": "Reverse",
+        "params": []
+    },
+    {
+        "name": "Wahwah",
+        "params": [
+            {
+                "name": "Freq",
+                "type": "float",
+                "min": 0.1,
+                "max": 4.0
+            },
+            {
+                "name": "Phase",
+                "type": "float",
+                "min": 0.0,
+                "max": 360.0
+            },
+            {
+                "name": "Depth",
+                "type": "int",
+                "min": 0,
+                "max": 100
+            },
+            {
+                "name": "Phase",
+                "type": "float",
+                "min": 0.0,
+                "max": 360.0
+            },
+            {
+                "name": "Depth",
+                "type": "int",
+                "min": 0,
+                "max": 255
+            },
+            {
+                "name": "Resonance",
+                "type": "float",
+                "min": 0.1,
+                "max": 10.0
+            },
+            {
+                "name": "Offset",
+                "type": "int",
+                "min": 0,
+                "max": 100
+            },
+            {
+                "name": "Gain",
+                "type": "float",
                 "min": -30.0,
                 "max": 30.0
             }
