@@ -2,24 +2,15 @@ import tkinter as tk
 
 from colors import colors
 
-# Base class for the Effect module
-
 class Effect(tk.Frame):
     def __init__(self, master, name, params):
-
-        # params - we expect a list of dictionaries in the format:
-        # {
-        #   "name": "Amplify",
-        #   "min": 0.01,
-        #   "max": 0.99
-        # }
-        #
-        # this info is imported from data/effect_data.json in effects.py
 
         tk.Frame.__init__(self, master, bg=colors["hl1"])
 
         self.master = master
         self.name = name
+
+        # params imported from data/effect_data.json
         self.params = params
 
         # dimensions - height based on num params
