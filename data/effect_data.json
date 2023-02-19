@@ -30,6 +30,46 @@
         ]
     },
     {
+        "name": "ChangePitch",
+        "params": [
+            {
+                "name": "Percentage",
+                "min": -99.0,
+                "max": 400.0
+            }
+        ]
+    },
+    {
+        "name": "Compressor",
+        "params": [
+            {
+                "name": "Threshold",
+                "min": -60.0,
+                "max": -1.0
+            },
+            {
+                "name": "NoiseFloor",
+                "min": -80.0,
+                "max": -20.0
+            },
+            {
+                "name": "Ratio",
+                "min": 1.1,
+                "max": 10.0
+            },
+            {
+                "name": "AttackTime",
+                "min": 0.1,
+                "max": 5.0
+            },
+            {
+                "name": "ReleaseTime",
+                "min": 1.0,
+                "max": 30.0
+            }
+        ]
+    },
+    {
         "name": "Echo",
         "params": [
             {
