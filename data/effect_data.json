@@ -162,6 +162,45 @@
         ]
     },
     {
+        "name": "High-passFilter",
+        "params": [
+            {
+                "name": "frequency",
+                "type": "float",
+                "min": 0.0,
+                "max": 20000.0
+            }
+        ]
+    },
+    {
+        "name": "Low-passFilter",
+        "params": [
+            {
+                "name": "frequency",
+                "type": "float",
+                "min": 0.0,
+                "max": 20000.0
+            }
+        ]
+    },
+    {
+        "name": "NotchFilter",
+        "params": [
+            {
+                "name": "frequency",
+                "type": "float",
+                "min": 0.0,
+                "max": 20000.0
+            },
+            {
+                "name": "q",
+                "type": "float",
+                "min": 0.1,
+                "max": 1000.0
+            }
+        ]
+    },
+    {
         "name": "Phaser",
         "params": [
             {
