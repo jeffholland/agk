@@ -63,11 +63,14 @@ class Effect(tk.Frame):
             min = param["min"]
             max = param["max"]
 
+            wrap = 60
+
             # First label + entry: start value
             label1text = f"{name} start"
             self.labels.append(tk.Label(
                 self,
-                text=label1text
+                text=label1text,
+                wraplength=wrap
             ))
             self.labels[-1].grid(row=current_row, column=0)
         
@@ -84,7 +87,8 @@ class Effect(tk.Frame):
             label2text = f"{name} end"
             self.labels.append(tk.Label(
                 self,
-                text=label2text
+                text=label2text,
+                wraplength=wrap
             ))
             self.labels[-1].grid(row=current_row, column=2)
             
