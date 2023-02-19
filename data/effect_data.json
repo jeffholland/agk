@@ -332,18 +332,6 @@
                 "max": 100
             },
             {
-                "name": "Phase",
-                "type": "float",
-                "min": 0.0,
-                "max": 360.0
-            },
-            {
-                "name": "Depth",
-                "type": "int",
-                "min": 0,
-                "max": 255
-            },
-            {
                 "name": "Resonance",
                 "type": "float",
                 "min": 0.1,
