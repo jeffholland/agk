@@ -7,6 +7,7 @@ from effects import Effects
 from parameters import Parameters
 from processor import Processor
 from run import Run
+from writer import Writer
 
 class AudacityGlitchKitchen(tk.Frame):
     def __init__(self, master=None):
@@ -16,6 +17,10 @@ class AudacityGlitchKitchen(tk.Frame):
 
         self.width = 400
         self.height = 600
+
+        # Initialize file writer object
+
+        self.writer = Writer()
         
         self.create_widgets()
 
@@ -48,7 +53,7 @@ class AudacityGlitchKitchen(tk.Frame):
 
         self.processor.process(params, processes)
 
-    # Reset effects and params
+    # Reset effects and params to default found in default_settings.json
 
     def reset(self):
         data = {}
@@ -58,6 +63,16 @@ class AudacityGlitchKitchen(tk.Frame):
         self.parameters.set_parameters(data["params"])
         self.effects.set_effects(data["effects"])
 
+    # Save current settings to default
+
+    def save_default(self):
+        data = {}
+        params = self.parameters.get_parameters()
+        effects = self.effects.get_effects()
+        data["params"] = params
+        data["effects"] = effects
+
+        self.writer.write_json("data/default_settings.json", data)
 
 
 app = AudacityGlitchKitchen()

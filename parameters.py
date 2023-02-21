@@ -183,5 +183,20 @@ class Parameters(tk.Frame):
         self.counter_start_var.set(params["counter_start"])
         self.num_iterations_var.set(params["num_iterations"])
         self.import_check_var.set(int(params["import"]))
-        self.gaps_check_var.set(0)
+        self.gaps_check_var.set(int(params["gaps_check"]))
         self.gaps_entry.delete(0, tk.END)
+        for gap in params["gaps"]:
+            self.gaps_entry.insert(tk.END, gap)
+            self.gaps_entry.insert(tk.END, ",")
+
+    def get_parameters(self):
+        params = {}
+
+        params["folder_name"] = self.folder_name_var.get()
+        params["counter_start"] = self.counter_start_var.get()
+        params["num_iterations"] = self.num_iterations_var.get()
+        params["import_check"] = bool(self.import_check_var.get())
+        params["gaps_check"] = bool(self.gaps_check_var.get())
+        params["gaps_entry"] = self.gaps_entry_var.get().split(",")
+
+        return params

@@ -143,3 +143,12 @@ class Effects(tk.Frame):
 
         for effect in self.effects:
             self.add_effect(effect["name"])
+
+    def get_effects(self):
+        effects = []
+        
+        for effect in self.effects:
+            effects.append(effect)
+
+        print(effects)
+        return effects

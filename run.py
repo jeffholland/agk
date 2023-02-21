@@ -16,7 +16,7 @@ class Run(tk.Frame):
         self.run_button = tk.Button(
             self,
             text="Run",
-            command=self.run
+            command=self.master.run
         )
         self.run_button.grid(row=0, column=0)
         self.widgets.append(self.run_button)
@@ -24,10 +24,18 @@ class Run(tk.Frame):
         self.reset_button = tk.Button(
             self,
             text="Reset",
-            command=self.reset
+            command=self.master.reset
         )
         self.reset_button.grid(row=0, column=1)
         self.widgets.append(self.reset_button)
+
+        self.save_default_button = tk.Button(
+            self,
+            text="Save default",
+            command=self.master.save_default
+        )
+        self.save_default_button.grid(row=0, column=2)
+        self.widgets.append(self.save_default_button)
 
     def refresh_colors(self):
         for widget in self.widgets:
@@ -35,9 +43,3 @@ class Run(tk.Frame):
                 highlightbackground=colors["bg1"],
                 foreground=colors["bg1"]
             )
-
-    def run(self):
-        self.master.run()
-
-    def reset(self):
-        self.master.reset()
