@@ -3,10 +3,10 @@ import tkinter as tk
 import json
 
 from colors import colors
+from commands import Commands
 from effects import Effects
 from parameters import Parameters
 from processor import Processor
-from run import Run
 from writer import Writer
 
 class AudacityGlitchKitchen(tk.Frame):
@@ -37,8 +37,8 @@ class AudacityGlitchKitchen(tk.Frame):
         self.effects = Effects(self)
         self.effects.grid(row=1, column=0, padx=5, pady=5)
 
-        self.run_buttons = Run(self)
-        self.run_buttons.grid(row=2, column=0, padx=5, pady=5)
+        self.command_buttons = Commands(self)
+        self.command_buttons.grid(row=2, column=0, padx=5, pady=5)
 
         # Glitch processor
 
