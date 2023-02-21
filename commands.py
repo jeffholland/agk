@@ -37,6 +37,30 @@ class Commands(tk.Frame):
         self.save_default_button.grid(row=0, column=2)
         self.widgets.append(self.save_default_button)
 
+        self.save_preset_button = tk.Button(
+            self,
+            text="Save preset",
+            command=self.master.save_preset
+        )
+        self.save_preset_button.grid(row=1, column=0)
+        self.widgets.append(self.save_preset_button)
+
+        self.load_preset_button = tk.Button(
+            self,
+            text="Load preset",
+            command=self.master.load_preset
+        )
+        self.load_preset_button.grid(row=1, column=1)
+        self.widgets.append(self.load_preset_button)
+
+
+        # Configure space
+        for widget in self.widgets:
+            widget.configure(width=7)
+            widget.grid_configure(padx=5, pady=5)
+
+
+
     def refresh_colors(self):
         for widget in self.widgets:
             widget.configure(

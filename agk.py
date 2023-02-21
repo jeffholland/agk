@@ -11,12 +11,17 @@ from writer import Writer
 
 class AudacityGlitchKitchen(tk.Frame):
     def __init__(self, master=None):
-        tk.Frame.__init__(self, master, bg=colors["bg1"])
+        
+        self.width = 400
+        self.height = 650
+
+        tk.Frame.__init__(
+            self, 
+            master, 
+            bg=colors["bg1"]
+        )
 
         self.grid(row=0, column=0)
-
-        self.width = 400
-        self.height = 600
 
         # Initialize file writer object
 
@@ -73,6 +78,12 @@ class AudacityGlitchKitchen(tk.Frame):
         data["effects"] = effects
 
         self.writer.write_json("data/default_settings.json", data)
+
+    def save_preset(self):
+        print("save preset")
+
+    def load_preset(self):
+        print("load preset")
 
 
 app = AudacityGlitchKitchen()
