@@ -1,0 +1,11 @@
+{
+    "params": {
+        "folder_name": "gen1",
+        "counter_start": "0",
+        "num_iterations": "1",
+        "import_check": true,
+        "gaps_check": false,
+        "gaps_entry": []
+    },
+    "effects": []
+}

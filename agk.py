@@ -6,8 +6,10 @@ from colors import colors
 from commands import Commands
 from effects import Effects
 from parameters import Parameters
+from preset_save import SavePreset
+from preset_load import LoadPreset
 from processor import Processor
-from writer import Writer
+from write import write_json
 
 class AudacityGlitchKitchen(tk.Frame):
     def __init__(self, master=None):
@@ -22,10 +24,6 @@ class AudacityGlitchKitchen(tk.Frame):
         )
 
         self.grid(row=0, column=0)
-
-        # Initialize file writer object
-
-        self.writer = Writer()
         
         self.create_widgets()
 
@@ -68,22 +66,28 @@ class AudacityGlitchKitchen(tk.Frame):
         self.parameters.set_parameters(data["params"])
         self.effects.set_effects(data["effects"])
 
-    # Save current settings to default
-
-    def save_default(self):
+    # Get preset info in one convenient dictionary
+    def get_preset(self):
         data = {}
         params = self.parameters.get_parameters()
         effects = self.effects.get_effects()
         data["params"] = params
         data["effects"] = effects
 
-        self.writer.write_json("data/default_settings.json", data)
+        return data
+
+    # Save current settings to default
+
+    def save_default(self):
+        data = self.get_preset()
+
+        write_json("data/default_settings.json", data)
 
     def save_preset(self):
-        print("save preset")
+        self.save_preset_window = SavePreset(self)
 
     def load_preset(self):
-        print("load preset")
+        self.load_preset_window = LoadPreset(self)
 
 
 app = AudacityGlitchKitchen()
