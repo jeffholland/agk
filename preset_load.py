@@ -18,11 +18,19 @@ class LoadPreset(tk.Frame):
         )
         self.listbox.grid(row=0, column=0, padx=5, pady=5)
 
-        self.listbox_var.set(listdir("./data/presets/"))
+        files = listdir("./data/presets/")
+        for i in range(len(files)):
+            # remove .json extension
+            files[i] = files[i][:-5]
+
+        self.listbox_var.set(files)
 
         self.listbox.bind("<Double-1>", self.load)
 
     def load(self, event):
         index = self.listbox.curselection()[0]
         selected = self.listbox.get(index)
-        print(selected)
+
+        filepath = "data/presets/" + selected + ".json"
+        self.master.set_preset(filepath)
+        self.window.destroy()

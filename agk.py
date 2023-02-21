@@ -56,11 +56,10 @@ class AudacityGlitchKitchen(tk.Frame):
 
         self.processor.process(params, processes)
 
-    # Reset effects and params to default found in default_settings.json
-
-    def reset(self):
+    # Set preset info according to JSON file
+    def set_preset(self, filepath):
         data = {}
-        with open("data/default_settings.json", "r") as f:
+        with open(filepath, "r") as f:
             data = json.load(f)
 
         self.parameters.set_parameters(data["params"])
@@ -82,6 +81,11 @@ class AudacityGlitchKitchen(tk.Frame):
         data = self.get_preset()
 
         write_json("data/default_settings.json", data)
+
+    # Reset effects and params to default found in default_settings.json
+
+    def reset(self):
+        self.set_preset("data/default_settings.json")
 
     def save_preset(self):
         self.save_preset_window = SavePreset(self)
