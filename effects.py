@@ -69,7 +69,6 @@ class Effects(tk.Frame):
         self.add_effects = AddEffect(self)
 
     def add_effect(self, name):
-        self.get_params(name)
         self.effects.append(Effect(
             self.container,
             name,
@@ -132,6 +131,8 @@ class Effects(tk.Frame):
             if effect["name"] == name:
                 return effect["params"]
 
+        return []
+
 
     def reset(self):
         for effect in self.effects:
@@ -139,15 +140,21 @@ class Effects(tk.Frame):
         self.effects.clear()
 
     def set_effects(self, effects):
+        # Expect a list of effect dictionaries with names and param values
         self.reset()
 
-        for effect in self.effects:
+        for effect in effects:
             self.add_effect(effect["name"])
 
     def get_effects(self):
+        # Return a list of effect dictionaries with names and param values
         effects = []
         
         for effect in self.effects:
+            effect = {
+                "name": effect.name,
+                "params": effect.params
+            }
             effects.append(effect)
 
         print(effects)

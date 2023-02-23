@@ -40,7 +40,8 @@ class SavePreset(tk.Frame):
 
         name = "data/presets/" + name
 
-        write_json(name, self.master.get_preset())
+        preset = self.master.get_preset()
+        write_json(name, preset)
         self.window.destroy()
         
 
