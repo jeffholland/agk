@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 import json
 
@@ -68,11 +69,11 @@ class Effects(tk.Frame):
     def show_add_effects(self):
         self.add_effects = AddEffect(self)
 
-    def add_effect(self, name):
+    def add_effect(self, name, params):
         self.effects.append(Effect(
             self.container,
             name,
-            self.get_params(name)
+            params
         ))
         row_number = len(self.effects)
         self.effects[-1].grid(
@@ -121,7 +122,7 @@ class Effects(tk.Frame):
             )
 
 
-    def get_params(self, name):
+    def get_effect_data(self, name):
         data = []
 
         with open("data/effect_data.json", "r") as f:
@@ -129,6 +130,9 @@ class Effects(tk.Frame):
 
         for effect in data:
             if effect["name"] == name:
+                for param in effect["params"]:
+                    param["start_val"] = param["min"]
+                    param["end_val"] = param["max"]
                 return effect["params"]
 
         return []
@@ -140,11 +144,11 @@ class Effects(tk.Frame):
         self.effects.clear()
 
     def set_effects(self, effects):
-        # Expect a list of effect dictionaries with names and param values
+        # Expect a list of effect dictionaries with names, start values and end values
         self.reset()
 
         for effect in effects:
-            self.add_effect(effect["name"])
+            self.add_effect(effect["name"], effect["params"])
 
     def get_effects(self):
         # Return a list of effect dictionaries with names and param values

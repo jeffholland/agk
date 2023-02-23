@@ -51,8 +51,8 @@ class Effect(tk.Frame):
 
             # Unpack expected dict values
             name = param["name"]
-            min = param["min"]
-            max = param["max"]
+            start = param["start_val"]
+            end = param["end_val"]
 
             wrap = 60
 
@@ -72,7 +72,7 @@ class Effect(tk.Frame):
                 width=4
             ))
             self.entries[-1].grid(row=current_row, column=1)
-            self.vars[-1].set(min)
+            self.vars[-1].set(start)
 
             # Second label + entry: end value
             label2text = f"{name} end"
@@ -90,7 +90,7 @@ class Effect(tk.Frame):
                 width=4
             ))
             self.entries[-1].grid(row=current_row, column=3)
-            self.vars[-1].set(max)
+            self.vars[-1].set(end)
 
             current_row += 1
 

@@ -57,7 +57,8 @@ class AddEffect(tk.Frame):
     
     def ok_pressed(self):
         name = self.effect_selector_var.get()
-        self.master.add_effect(name)
+        params = self.master.get_effect_data(name)
+        self.master.add_effect(name, params)
         self.window.destroy()
 
     def cancel_pressed(self):

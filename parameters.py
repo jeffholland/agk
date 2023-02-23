@@ -185,6 +185,7 @@ class Parameters(tk.Frame):
         self.import_check_var.set(int(params["import_check"]))
         self.gaps_check_var.set(int(params["gaps_check"]))
         self.gaps_entry.delete(0, tk.END)
+        
         for gap in params["gaps_entry"]:
             self.gaps_entry.insert(tk.END, gap)
             self.gaps_entry.insert(tk.END, ",")

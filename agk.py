@@ -62,6 +62,8 @@ class AudacityGlitchKitchen(tk.Frame):
         with open(filepath, "r") as f:
             data = json.load(f)
 
+        print(data)
+
         self.parameters.set_parameters(data["params"])
         self.effects.set_effects(data["effects"])
 
