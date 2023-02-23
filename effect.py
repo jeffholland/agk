@@ -134,3 +134,14 @@ class Effect(tk.Frame):
 
         print(output)
         return output
+
+    def refresh_params(self):
+        count = 0
+        for var in self.vars:
+            if count % 2 == 0:
+                idx = int(count / 2)
+                self.params[idx]["start_val"] = var.get()
+            else:
+                idx = int((count - 1) / 2)
+                self.params[idx]["end_val"] = var.get()
+            count += 1

@@ -155,6 +155,7 @@ class Effects(tk.Frame):
         effects = []
         
         for effect in self.effects:
+            effect.refresh_params()
             effect = {
                 "name": effect.name,
                 "params": effect.params
