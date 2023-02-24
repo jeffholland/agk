@@ -13,6 +13,7 @@ class Effects(tk.Frame):
 
         # Store list of effect objects
         self.effects = []
+        self.effect_index = 0
 
         # Store list of buttons
         self.buttons = []
@@ -73,7 +74,8 @@ class Effects(tk.Frame):
         self.effects.append(Effect(
             self.container,
             name,
-            params
+            params,
+            self.effect_index
         ))
         row_number = len(self.effects)
         self.effects[-1].grid(
@@ -83,6 +85,7 @@ class Effects(tk.Frame):
             padx=5,
             pady=5
         )
+        self.effect_index += 1
 
 
     def get_processes(self):
@@ -162,5 +165,22 @@ class Effects(tk.Frame):
             }
             effects.append(effect)
 
-        print(effects)
         return effects
+
+    def delete_effect(self, index):
+        self.effects[index].grid_forget()
+        self.effects.pop(index)
+
+        self.effect_index -= 1
+
+        if index < len(self.effects):
+            self.reset_effect_indices()
+
+        print(self.effects)
+
+    def reset_effect_indices(self):
+        self.effect_index = 0
+
+        for effect in self.effects:
+            effect.index = self.effect_index
+            self.effect_index += 1

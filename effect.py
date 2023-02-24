@@ -3,12 +3,13 @@ import tkinter as tk
 from colors import colors
 
 class Effect(tk.Frame):
-    def __init__(self, master, name, params):
+    def __init__(self, master, name, params, index):
 
         tk.Frame.__init__(self, master, bg=colors["hl1"])
 
         self.master = master
         self.name = name
+        self.index = index
 
         # params imported from data/effect_data.json
         self.params = params
@@ -18,7 +19,7 @@ class Effect(tk.Frame):
         self.height = 50 + (30 * len(self.params))
 
         # empty arrays to store the GUI elements
-        self.labels = []
+        self.widgets = []
         self.entries = []
         self.vars = []
 
@@ -41,9 +42,27 @@ class Effect(tk.Frame):
         self.name_label.grid(
             row=0, 
             column=0,
-            columnspan=numcolumns
+            columnspan=(numcolumns - 1)
         )
-        self.labels.append(self.name_label)
+        self.widgets.append(self.name_label)
+
+        # delete button
+
+        self.delete_button = tk.Button(
+            self,
+            text="x",
+            width=1,
+            command=self.delete
+        )
+        self.delete_button.grid(
+            row=0,
+            column=(numcolumns - 1),
+            padx=5,
+            pady=5
+        )
+        self.widgets.append(self.delete_button)
+
+        # Iterate through parameters and create fields for each
 
         current_row = 1
 
@@ -58,12 +77,12 @@ class Effect(tk.Frame):
 
             # First label + entry: start value
             label1text = f"{name} start"
-            self.labels.append(tk.Label(
+            self.widgets.append(tk.Label(
                 self,
                 text=label1text,
                 wraplength=wrap
             ))
-            self.labels[-1].grid(row=current_row, column=0)
+            self.widgets[-1].grid(row=current_row, column=0)
         
             self.vars.append(tk.StringVar())
             self.entries.append(tk.Entry(
@@ -76,12 +95,12 @@ class Effect(tk.Frame):
 
             # Second label + entry: end value
             label2text = f"{name} end"
-            self.labels.append(tk.Label(
+            self.widgets.append(tk.Label(
                 self,
                 text=label2text,
                 wraplength=wrap
             ))
-            self.labels[-1].grid(row=current_row, column=2)
+            self.widgets[-1].grid(row=current_row, column=2)
             
             self.vars.append(tk.StringVar())
             self.entries.append(tk.Entry(
@@ -95,13 +114,13 @@ class Effect(tk.Frame):
             current_row += 1
 
         # Set padding
-        for label in self.labels:
+        for label in self.widgets:
             label.grid_configure(padx=5, pady=5)
         for entry in self.entries:
             entry.grid_configure(padx=5, pady=5)
 
     def refresh_colors(self):
-        for label in self.labels:
+        for label in self.widgets:
             label.configure(
                 bg=colors["hl1"],
                 fg=colors["bg1"],
@@ -145,3 +164,6 @@ class Effect(tk.Frame):
                 idx = int((count - 1) / 2)
                 self.params[idx]["end_val"] = var.get()
             count += 1
+
+    def delete(self):
+        self.master.master.master.delete_effect(self.index)
