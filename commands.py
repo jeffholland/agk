@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from constants import *
 from colors import colors
 
 # This class is actually for a few buttons at the end - Run, Reset...
@@ -9,6 +10,11 @@ class Commands(tk.Frame):
         tk.Frame.__init__(self, master, bg=colors["bg1"])
         self.master = master
         self.widgets = []
+
+        self.button_width = 7
+        if PLATFORM == "win32":
+            self.button_width = 10
+
         self.create_widgets()
         self.refresh_colors()
 
@@ -56,7 +62,7 @@ class Commands(tk.Frame):
 
         # Configure space
         for widget in self.widgets:
-            widget.configure(width=7)
+            widget.configure(width=self.button_width)
             widget.grid_configure(padx=5, pady=5)
 
 

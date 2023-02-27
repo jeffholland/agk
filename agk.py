@@ -4,6 +4,7 @@ import json
 
 from colors import colors
 from commands import Commands
+from constants import *
 from effects import Effects
 from parameters import Parameters
 from preset_save import SavePreset
@@ -16,6 +17,10 @@ class AudacityGlitchKitchen(tk.Frame):
         
         self.width = 400
         self.height = 650
+
+        if PLATFORM == "win32":
+            self.width = 310
+            self.height = 610
 
         tk.Frame.__init__(
             self, 
