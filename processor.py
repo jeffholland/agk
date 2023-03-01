@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from time import sleep
 
 from utils import do_command
@@ -8,17 +9,26 @@ import pipe_client
 class Processor:
     def __init__(self, master):
         self.master = master
+        self.wait_time = 0.1
 
         self.client = pipe_client.PipeClient()
 
 
-    def write(self, command):
+    def write(self, command, timeout=True):
         # custom write function for debugging
         self.client.write(command, timer=True)
 
         response = ''
+        time_elapsed = 0
         while response == '':
-            sleep(0.1)
+            if timeout == True:
+                if time_elapsed > 5.0:
+                    print(f"{time_elapsed} seconds elapsed - exiting")
+                    sys.exit()
+
+            sleep(self.wait_time)
+            time_elapsed += self.wait_time
+
             response = self.client.read()
 
         print(f"pipe client reply: {response}")
@@ -34,10 +44,8 @@ class Processor:
         if params["import"] == True:
             command = "ImportRaw:"
             # (do_command(command))
-            self.write(command)
+            self.write(command, timeout=False)
 
-        # wait for import raw command to finish
-        sleep(0.1)
         # Get audio info
         command = "GetInfo: Type=Tracks"
         info = (do_command(command))
