@@ -3,6 +3,8 @@ import os
 import sys
 from time import sleep
 
+from tkinter import messagebox
+
 from utils import do_command
 import pipe_client
 
@@ -23,15 +25,14 @@ class Processor:
         while response == '':
             if timeout == True:
                 if time_elapsed > 5.0:
-                    print(f"{time_elapsed} seconds elapsed - exiting")
+                    messagebox.showerror("command timed out",
+                    f"The current command timed out: {command}\nExiting...")
                     sys.exit()
 
             sleep(self.wait_time)
             time_elapsed += self.wait_time
-
+            
             response = self.client.read()
-
-        print(f"pipe client reply: {response}")
 
 
     def process(self, params, processes):
