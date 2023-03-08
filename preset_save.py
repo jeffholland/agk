@@ -17,6 +17,7 @@ class SavePreset(tk.Frame):
             textvariable=self.filename_entry_var
         )
         self.filename_entry.grid(row=0, column=0, padx=5, pady=5, columnspan=2)
+        self.filename_entry.focus_set()
 
         self.cancel_button = tk.Button(
             self.window,
