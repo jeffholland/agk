@@ -2,16 +2,26 @@ import json
 import os
 import sys
 from time import sleep
+from subprocess import run
 
 from tkinter import messagebox
 
 from utils import do_command
 import pipe_client
 
+from constants import *
+
 class Processor:
     def __init__(self, master):
         self.master = master
+
+        # Check every {self.wait_time} seconds for a response
         self.wait_time = 0.1
+        # Call self.timeout after {self.timeout_time} seconds with no response
+        self.timeout_time = 5.0
+
+        # Path to write files to
+        self.path = "/Users/jholland/Pictures/glitch/"
 
         self.client = pipe_client.PipeClient()
 
@@ -25,9 +35,7 @@ class Processor:
         while response == '':
             if timeout == True:
                 if time_elapsed > 5.0:
-                    messagebox.showerror("command timed out",
-                    f"The current command timed out: {command}\nExiting...")
-                    sys.exit()
+                    self.timeout(command)
 
             sleep(self.wait_time)
             time_elapsed += self.wait_time
@@ -64,7 +72,7 @@ class Processor:
 
         # Create file path if does not already exist
         folder_name = params["folder_name"]
-        filepath = f"/Users/jholland/Pictures/glitch/{folder_name}"
+        filepath = self.path + folder_name
         if not os.path.exists(filepath):
             os.mkdir(filepath)
         
@@ -120,6 +128,11 @@ class Processor:
             self.write("Delete:")
             self.write("Paste:")
 
+        if TEST_TIMEOUT:
+            self.timeout(command)
+        else:
+            self.success(params)
+
 
 
     def get_value(self, start_val, end_val, idx):
@@ -131,3 +144,37 @@ class Processor:
         inc = (end_val - start_val) / self.num_iterations
 
         return start_val + (inc * (idx - self.counter_start))
+    
+
+    # This function runs when a process times out
+    # (usually means the application froze).
+    # This is unfortunately quite common.
+    # The only solution I currently have is to display an error,
+    # shut down Audacity, and shut down the application.
+    
+    def timeout(self, command):
+        messagebox.showerror("command timed out",
+        f"The current command timed out: {command}\nExiting...")
+
+        # Kill Audacity
+        if PLATFORM == "win32":
+            # not tested on Windows yet
+            run(["taskkill","/IM","Audacity","/F"],shell=True)
+        else:
+            run(["killall Audacity"],shell=True)
+
+        # Kill AGK
+        sys.exit()
+
+
+
+    # This function is called when the process completes.
+    # It can easily be edited to display different info
+    # at the end of the process.
+
+    def success(self, params):
+        num_iterations = params["num_iterations"]
+        full_path = self.path + params["folder_name"]
+
+        messagebox.showinfo("Success",
+            f"Done - wrote {num_iterations} files to {full_path}.")
