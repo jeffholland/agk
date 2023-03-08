@@ -174,6 +174,9 @@ class Processor:
 
     def success(self, params):
         num_iterations = params["num_iterations"]
+        if params["fill_gaps"] == True:
+            num_iterations = len(params["gaps"])
+
         full_path = self.path + params["folder_name"]
 
         messagebox.showinfo("Success",
