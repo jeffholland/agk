@@ -198,11 +198,16 @@ class Parameters(tk.Frame):
         params["num_iterations"] = self.num_iterations_var.get()
         params["import_check"] = bool(self.import_check_var.get())
         params["gaps_check"] = bool(self.gaps_check_var.get())
-
-        gaps = self.gaps_entry_var.get()
-        if len(gaps) > 0:
-            params["gaps_entry"] = gaps.split(",")
-        else:
-            params["gaps_entry"] = []
+        params["gaps_entry"] = self.parse_gaps_entry()
 
         return params
+    
+
+    def parse_gaps_entry(self, params):
+        gaps = self.gaps_entry_var.get()
+        if len(gaps) > 0:
+            gaps = gaps.split(",")
+        else:
+            gaps = []
+
+        return gaps

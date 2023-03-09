@@ -10,6 +10,7 @@ from parameters import Parameters
 from preset_save import SavePreset
 from preset_load import LoadPreset
 from processor import Processor
+from settings import Settings
 from write import write_json
 
 class AudacityGlitchKitchen(tk.Frame):
@@ -97,6 +98,9 @@ class AudacityGlitchKitchen(tk.Frame):
 
     def load_preset(self):
         self.load_preset_window = LoadPreset(self)
+
+    def show_settings(self):
+        self.settings_window = Settings(self)
 
 
 app = AudacityGlitchKitchen()

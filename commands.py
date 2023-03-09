@@ -59,6 +59,13 @@ class Commands(tk.Frame):
         self.load_preset_button.grid(row=1, column=1)
         self.widgets.append(self.load_preset_button)
 
+        self.settings_button = tk.Button(
+            self,
+            text="Settings",
+            command=self.master.show_settings
+        )
+        self.settings_button.grid(row=1, column=2)
+        self.widgets.append(self.settings_button)
 
         # Configure space
         for widget in self.widgets:
