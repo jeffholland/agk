@@ -203,7 +203,7 @@ class Parameters(tk.Frame):
         return params
     
 
-    def parse_gaps_entry(self, params):
+    def parse_gaps_entry(self):
         gaps = self.gaps_entry_var.get()
         if len(gaps) > 0:
             gaps = gaps.split(",")
