@@ -22,7 +22,7 @@ try:
 except FileNotFoundError:
   messagebox.showerror("Pipe not found", 
     """The audacity pipe file was not found. 
-    Please make sure Audacity is open before launching the application.""")
+    Please make sure that Audacity is open and mod-script-pipe is enabled in Audacity preferences.""")
   sys.exit()
 
 def send_command(command):
