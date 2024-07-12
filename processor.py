@@ -21,7 +21,7 @@ class Processor:
         self.timeout_time = 5.0
 
         # Path to write files to
-        self.path = "/Users/jholland/Pictures/glitch/"
+        self.path = os.path.expanduser('~') + "/Pictures/glitch/"
 
         self.client = pipe_client.PipeClient()
 
